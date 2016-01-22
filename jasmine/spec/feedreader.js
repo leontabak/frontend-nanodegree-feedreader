@@ -95,15 +95,11 @@ $(function() {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-	var feed0, feed1;
-
-	beforeAll( function() {
-	    feed0 = $('.feed').text();
-	    console.log( 'feed0 = ' + feed0 );
-	});
+	var feed0;
 
 	beforeEach( function(done) {
 	    loadFeed(0, done);
+	    feed0 = $('.feed').text();
 	});
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -116,19 +112,29 @@ $(function() {
 	     var numberOfEntries = $('.entry');
 	     expect(numberOfEntries.length).toBeGreaterThan(0);
              done();
-	 });
+	 }); // loadFeed delivers at least a single .entry element
 
-    /* TODO: Write a new test suite named "New Feed Selection"
+    }); // Initial Entries
+
+    /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+	var feedA;
+
+	beforeEach( function(done) {
+	    loadFeed(1, done);
+            feedA = $('.feed').html();
+	});
+
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
-         */
-	 it('loadFeed changes content', function(done) {
-	    feed1 = $('.feed').text();
-	    console.log( 'feed1 = ' + feed1 );
-	    expect(feed0).not.toBe(feed1);
-            done();
-	 });
-    });
+        */
+	it('loadFeed changes content', function(done) {
+	   loadFeed(0);
+	   expect($('.feed').html()).not.toEqual(feedA);
+           done();
+	}); // loadFeed changes content
+    }); // New Feed Selection
+
 }());
