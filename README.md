@@ -1,3 +1,45 @@
+
+Project 6
+=========
+Feed Reader Tester
+==================
+Leon Tabak
+----------
+22 January 2016
+---------------
+
+# How to run the tests
+
+## To use the application:
+
+The application provides a reader easy access to
+articles about computing technologies and education.
+
+Open index.html (in the top level folder of this project)
+in a browser window. 
+
+Click on the "hamburger" menu icon (a stack of 3 short 
+horizontal lines) in the upper-left corner of the window.
+A menu will slide into the window from the left.
+
+Select one of the themes. Click on the selected theme. Then
+click again on the hamburger icon to make the menu of themes
+disappear again.
+
+Click on one the title of one of the articles that the
+application displays immediately below "Udacity Blog."
+
+## To test the application:
+
+Tests are built into the application. The tests will be
+run every time the application is opened.
+
+Open index.html (in the top level folder of this project)
+in a browser window. Scroll to the bottom of the window.
+Look for the Jasmine name and logo. Look for a statement
+that "7 specs, 0 failures" followed by brief descriptions
+of the specifications.
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.

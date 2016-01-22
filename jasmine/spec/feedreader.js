@@ -1,3 +1,9 @@
+
+// Practice with unit testing.
+// Practice with a unit testing framework for JavaScript.
+// Leon Tabak
+// 22 January 2016
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -13,6 +19,9 @@ $(function() {
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
+
+    // Jasmine gives us the describe() function as a means
+    // of defining a suite of tests.
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
@@ -21,7 +30,17 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
+
+        // A suite of tests contain specs.
+        // A spec (specification) is a test.
         it('are defined', function() {
+	    // Jasmine gives us the expect() function as a
+            // means of comparing an actual value with an
+            // expected value.
+            // Jasmine gives us matchers to make these
+            // comparisions. 
+            // Here, toBeDefined() and toBe() are our
+            // matcher functions.
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
@@ -117,12 +136,17 @@ $(function() {
     }); // Initial Entries
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+
+    // This was the hard one to write.
+    // I tried many variations and spent a lot of time
+    // reading on the Udacity forum before I got a test
+    // that passes.
     describe('New Feed Selection', function() {
 	var feedA;
 
 	beforeEach( function(done) {
 	    loadFeed(1, done);
-            feedA = $('.feed').html();
+            feedA = $('.feed').text();
 	});
 
 
@@ -132,7 +156,7 @@ $(function() {
         */
 	it('loadFeed changes content', function(done) {
 	   loadFeed(0);
-	   expect($('.feed').html()).not.toEqual(feedA);
+	   expect($('.feed').text()).not.toEqual(feedA);
            done();
 	}); // loadFeed changes content
     }); // New Feed Selection
